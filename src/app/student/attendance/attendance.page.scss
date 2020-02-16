@@ -1,0 +1,38 @@
+.horizontal {
+    display: inline-flex;
+}
+
+.small-radio-btn {
+    ion-item {
+        ion-radio {
+            margin-right: 5px;
+        }
+    }
+}
+
+.student-list {
+    border-color: rgba(0, 0, 0, 0.3) !important;
+    ion-col {
+        ion-label.student-name {
+            line-height: 3;
+        }
+    }
+}
+
+ion-radio {
+    margin-right: 12px;
+}
+
+.bottom-line {
+    border-bottom: 1px solid;
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.small-font {
+font-size: small; 
+ion-radio-group {
+    ion-item {
+        font-size: small;
+    }
+}
+}

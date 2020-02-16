@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RegisterPage } from './register/register.page';
 
 const routes: Routes = [
-  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' }
+  { path: 'student', loadChildren: './student/student.module#StudentPageModule' },
+  { path: 'register', component: RegisterPage },
+  { path: '', loadChildren: './login/login.module#LoginPageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

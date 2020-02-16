@@ -10,12 +10,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Camera } from '@ionic-native/camera/ngx';
 import { IonicStorageModule } from '@ionic/storage';
+import { Ionic4DatepickerModule } from '@logisticinfotech/ionic4-datepicker';
+import { RegisterPage } from './register/register.page';
+
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RegisterPage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    Ionic4DatepickerModule
   ],
   providers: [
     StatusBar,

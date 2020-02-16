@@ -1,0 +1,38 @@
+<ion-content>
+    <!-- <ion-card class="welcome-card">
+      <ion-card-header>
+        <ion-card-title>Welcome to Student Application</ion-card-title>
+      </ion-card-header>
+    </ion-card> -->
+    <div>
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          <span *ngIf="userObj.userType !== 'student'">
+          Username
+          </span>
+          <span *ngIf="userObj.userType === 'student'">Roll Number</span>
+        </ion-label>
+        <ion-input type="text" name="username" [(ngModel)]="userObj.username" class="form-control" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Password</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="userObj.password" class="form-control" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="userObj.userType">
+          <ion-select-option value="student">Student</ion-select-option>
+          <ion-select-option value="admin">Admin</ion-select-option>
+        </ion-select>
+      </ion-item>  
+      <ion-row><ion-col style="text-align: center;">
+        <ion-button (click)="loginHandler()" color="primary">Submit</ion-button>
+        <ion-label id="sign-up" style="line-height: 2.3;" routerLink="/register">Sign Up?</ion-label>
+    </ion-col></ion-row>
+       <!-- <ion-row>
+         <ion-col>
+            <ion-label>Sign Up?</ion-label>
+         </ion-col>
+       </ion-row> -->
+    </div>
+</ion-content>

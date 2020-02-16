@@ -12,6 +12,9 @@ log.txt
 .vscode/
 npm-debug.log*
 
+package-lock.json
+
+# Dependency directories
 .idea/
 .ionic/
 .sourcemaps/

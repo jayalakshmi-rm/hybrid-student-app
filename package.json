@@ -1,5 +1,5 @@
 {
-  "name": "photo-rc1",
+  "name": "student-attendance-app",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -26,6 +26,8 @@
     "@ionic-native/status-bar": "^5.15.1",
     "@ionic/angular": "^4.11.1",
     "@ionic/storage": "^2.2.0",
+    "@logisticinfotech/ionic4-datepicker": "^1.4.3",
+    "chart.js": "^2.9.3",
     "cordova-android": "8.1.0",
     "cordova-ios": "5.0.1",
     "cordova-plugin-camera": "~4.1.0",
@@ -37,6 +39,8 @@
     "cordova-plugin-whitelist": "^1.3.4",
     "cordova-sqlite-storage": "^3.4.0",
     "core-js": "^3.3.2",
+    "moment": "^2.24.0",
+    "ng2-charts": "^2.3.0",
     "rxjs": "~6.5.3",
     "zone.js": "^0.10.2"
   },
@@ -69,7 +73,9 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-camera": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
       "cordova-plugin-device": {},

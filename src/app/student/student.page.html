@@ -1,0 +1,114 @@
+
+<ion-content>
+  <ion-item style="font-weight: 600;">
+    <ion-label style="margin-left: 16px;">Student Name</ion-label>
+    <ion-label>{{studentDetails.name}}</ion-label>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center;">  
+      <!-- <ion-select placeholder="Select One" [(ngModel)]="dataCategory" name="category" (ngModelChange)="handleCategory($event)">
+          <ion-select-option value="month">Month wise</ion-select-option>
+          <ion-select-option value="year">Year wise</ion-select-option>
+          <ion-select-option value="sixMonth">Last 6 month</ion-select-option>
+      </ion-select> -->
+      <ion-select placeholder="Select One" [(ngModel)]="dataCategory" name="category" (ngModelChange)="handleCategory($event)">
+        <!-- <ion-select-option value="month">Month wise</ion-select-option>
+        <ion-select-option value="year">Year wise</ion-select-option>
+        <ion-select-option value="sixMonth">Last 6 month</ion-select-option> -->
+        <ion-select-option value="1">1st Semester</ion-select-option>
+        <ion-select-option value="2">2nd Semester</ion-select-option>
+        <ion-select-option value="3">3rd Semester</ion-select-option>
+        <ion-select-option value="4">4th Semester</ion-select-option>
+        <ion-select-option value="5">5th Semester</ion-select-option>
+        <ion-select-option value="6">6th Semester</ion-select-option>
+        <ion-select-option value="7">7th Semester</ion-select-option>
+        <ion-select-option value="8">8th Semester</ion-select-option>
+    </ion-select>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+      <!-- <ion-item *ngIf="dataCategory == 'year'">
+      <ion-select placeholder="Select One" [(ngModel)]="selectedYear" name="year" (ngModelChange)="updateChart($event)">
+        <ion-select-option value="2017">2017</ion-select-option>
+        <ion-select-option value="2018">2018</ion-select-option>
+        <ion-select-option value="2019">2019</ion-select-option>
+        <ion-select-option value="2020">2020</ion-select-option>
+    </ion-select>
+    </ion-item>
+  <ion-item *ngIf="dataCategory == 'month'">
+      <ion-select placeholder="Select One" [(ngModel)]="selectedMonth" name="month" (ngModelChange)="updateChart($event)">
+        <ion-select-option *ngFor="let month of monthData" [value]="month">{{month}}</ion-select-option>
+      </ion-select>
+    </ion-item>     -->
+    <ion-content style="text-align: center; line-height: 8;" *ngIf="!chartObj">
+      OOPS! Data not available!!
+    </ion-content>
+    <ion-content *ngIf="chartObj">
+    <canvas baseChart 
+      [data]="pieChartData" 
+      [labels]="pieChartLabels" 
+      [chartType]="pieChartType"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins"
+      [legend]="pieChartLegend">
+    </canvas>
+    <ion-item *ngIf="userObj['userType'] === 'admin' && calculatePercentage('present') < 75">
+      <ion-label class="alert-percent" style="font-size: small !important;">Please notify by SMS/Mail!</ion-label> 
+      <ion-button (click)="showSendingMsg('sms')">Send SMS</ion-button>
+      <ion-button (click)="showSendingMsg('mail')">Send Mail</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-row> 
+              <ion-col style="font-weight: 600;">
+                Present %
+              </ion-col>          
+            </ion-row>
+            <ion-row>
+              <ion-col [ngClass]="{'alert-percent':calculatePercentage('present') < 75}">{{calculatePercentage('present')}}</ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row>
+              <ion-col style="font-weight: 600;">
+                Total
+              </ion-col>          
+            </ion-row>
+            <ion-row>
+              <ion-col>{{total}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col style="font-weight: 600;">
+                Holidays
+              </ion-col>          
+            </ion-row>
+            <ion-row>
+              <ion-col>{{chartObj.holidays}}</ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col>
+            <ion-row>
+              <ion-col style="font-weight: 600;">
+                Present
+              </ion-col>          
+            </ion-row>
+            <ion-row>
+              <ion-col>{{chartObj.present}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col style="font-weight: 600;">
+                Absent
+              </ion-col>          
+            </ion-row>
+            <ion-row>
+              <ion-col>{{chartObj.absent}}</ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    </ion-content>
+  </ion-content>
